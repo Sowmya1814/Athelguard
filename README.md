@@ -212,7 +212,3 @@ This project demonstrates practical knowledge of:
 - File Handling & Security
 - MVC Architecture
 - Git & GitHub Version Control
-# License
-
-This project is developed for educational, research, and learning purposes.
-````
