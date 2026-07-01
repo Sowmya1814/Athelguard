@@ -73,6 +73,7 @@ Security Features
 Project Structure
 ------------
 
+```
 aethelguard/
 │
 ├── backend/
@@ -88,6 +89,7 @@ aethelguard/
 │   └── run.py
 │
 └── README.md
+```
 
 Core Modules
 ------------
