@@ -1,4 +1,5 @@
 AethelGuard – Secure Digital Vault System
+------------
 
 AethelGuard is a **full-stack secure digital vault application** designed to safely store sensitive files and personal information using advanced encryption techniques. The system provides secure user authentication, encrypted file storage, nominee management, inactivity monitoring, and administrative controls to ensure data privacy and secure digital inheritance.
 
