@@ -1,0 +1,553 @@
+/* ════════════════════════════════════════════════
+   NomineeDashboard.css  —  Dark Navy Theme
+   Background comes from body in index.css
+   Panels = glass transparency, cards = glass
+════════════════════════════════════════════════ */
+
+/* ── Keyframes ──────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ndSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.94) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ── Page shell ─────────────────────────────────────────── */
+.nomineeDashPage {
+  min-height: 100vh;
+  width: 100%;
+  /* NO background — inherits dark navy gradient from body in index.css */
+}
+
+/* ── Wrapper ────────────────────────────────────────────── */
+.nomineeDashWrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 36px 70px;
+  box-sizing: border-box;
+}
+
+/* ── Page heading ───────────────────────────────────────── */
+.nomineeDashHead {
+  text-align: center;
+  margin-bottom: 36px;
+  animation: fadeUp 0.4s ease both;
+}
+
+.nomineeDashHead h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #e0f2fe;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+}
+
+.nomineeDashSub {
+  font-size: 15px;
+  color: #475569;
+  margin: 0;
+}
+
+.nomineeDashSub strong {
+  color: #7dd3fc;
+  font-weight: 600;
+}
+
+/* ── Loading ────────────────────────────────────────────── */
+.ndLoadingBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  color: #475569;
+}
+
+.ndSpinner {
+  width: 38px;
+  height: 38px;
+  border: 3px solid rgba(56,189,248,.15);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: ndSpin 0.75s linear infinite;
+  margin-bottom: 16px;
+}
+
+.ndLoadingBox p { font-size: 14px; color: #475569; }
+
+/* ── Status cards row ───────────────────────────────────── */
+.ndStatusRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+  animation: fadeUp 0.45s ease 0.05s both;
+}
+
+.ndStatCard {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-radius: 18px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 2px 14px rgba(0,0,0,.2);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.ndStatCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+}
+
+.ndStatIcon {
+  font-size: 24px;
+  width: 46px;
+  height: 46px;
+  background: rgba(56, 189, 248, 0.10);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(56,189,248,.12);
+}
+
+.ndStatInfo { display: flex; flex-direction: column; gap: 4px; }
+
+.ndStatLabel {
+  font-size: 11px;
+  color: #475569;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ndStatInfo strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+/* ── Badges ─────────────────────────────────────────────── */
+.ndBadge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.badgeGreen  { background: rgba(16,185,129,.18);  color: #6ee7b7; border: 1px solid rgba(16,185,129,.25); }
+.badgeYellow { background: rgba(245,158,11,.15);  color: #fcd34d; border: 1px solid rgba(245,158,11,.25); }
+.badgeRed    { background: rgba(239,68,68,.15);   color: #fca5a5; border: 1px solid rgba(239,68,68,.2); }
+.badgeGray   { background: rgba(100,116,139,.15); color: #94a3b8; border: 1px solid rgba(100,116,139,.2); }
+
+/* ── Main 2-col grid ────────────────────────────────────── */
+.ndMainGrid {
+  display: grid;
+  grid-template-columns: 390px 1fr;
+  gap: 24px;
+  align-items: start;
+  animation: fadeUp 0.5s ease 0.1s both;
+}
+
+/* ── Panel (glass) ──────────────────────────────────────── */
+.ndPanel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.22);
+}
+
+.ndVaultPanel {
+  /* slightly more visible for the content panel */
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ── Panel header ───────────────────────────────────────── */
+.ndPanelHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(56,189,248,.10);
+}
+
+.ndPanelIcon { font-size: 22px; }
+
+.ndPanelHeader h2 {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #e0f2fe;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+}
+
+.ndItemCount {
+  font-size: 11px;
+  background: rgba(56,189,248,.12);
+  color: #38bdf8;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  border: 1px solid rgba(56,189,248,.2);
+}
+
+/* ── Access section ─────────────────────────────────────── */
+.ndAccessSection {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ndAccessDesc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Info boxes ─────────────────────────────────────────── */
+.ndInfoBox {
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.ndInfoBox span { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.ndInfoBox p { margin: 0; }
+
+.ndInfoBox.green  { background: rgba(16,185,129,.10);  border: 1px solid rgba(16,185,129,.2);  color: #6ee7b7; }
+.ndInfoBox.yellow { background: rgba(245,158,11,.10);  border: 1px solid rgba(245,158,11,.2);  color: #fcd34d; }
+.ndInfoBox.red    { background: rgba(239,68,68,.10);   border: 1px solid rgba(239,68,68,.2);   color: #fca5a5; }
+
+/* ── Verify box ─────────────────────────────────────────── */
+.ndVerifyBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(56,189,248,.14);
+  border-radius: 14px;
+}
+
+.ndInput {
+  padding: 12px 14px;
+  border: 1.5px solid rgba(56,189,248,.2);
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #e2e8f0;
+  background: rgba(255,255,255,.06);
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.ndInput::placeholder { color: #475569; }
+.ndInput:focus { border-color: #38bdf8; box-shadow: 0 0 0 3px rgba(56,189,248,.12); background: rgba(56,189,248,.06); }
+
+/* ── Primary button ─────────────────────────────────────── */
+.ndPrimaryBtn {
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  font-family: inherit;
+  box-shadow: 0 4px 16px rgba(56,189,248,.35);
+}
+
+.ndPrimaryBtn:hover    { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(56,189,248,.5); }
+.ndPrimaryBtn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* ── Alert boxes ────────────────────────────────────────── */
+.ndAlertSuccess {
+  background: rgba(16,185,129,.10);
+  border: 1px solid rgba(16,185,129,.2);
+  color: #6ee7b7;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.ndAlertError {
+  background: rgba(239,68,68,.10);
+  border: 1px solid rgba(239,68,68,.2);
+  color: #fca5a5;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+/* ── Locked/empty state ─────────────────────────────────── */
+.ndLockedState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.ndLockIcon { font-size: 52px; margin-bottom: 16px; filter: drop-shadow(0 0 14px rgba(56,189,248,.2)); }
+
+.ndLockedState p {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #94a3b8;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+}
+
+.ndLockedState span { font-size: 13px; color: #334155; }
+
+/* ── Vault item list ────────────────────────────────────── */
+.ndVaultList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ndVaultItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(56,189,248,.10);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ndVaultItem:hover {
+  background: rgba(56, 189, 248, 0.08);
+  border-color: rgba(56, 189, 248, 0.28);
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(56,189,248,.10);
+}
+
+.ndVaultItemIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.iconNote { background: rgba(16,185,129,.15);  border: 1px solid rgba(16,185,129,.2); }
+.iconFile { background: rgba(56,189,248,.12);  border: 1px solid rgba(56,189,248,.18); }
+
+.ndVaultItemMeta { flex: 1; min-width: 0; }
+
+.ndVaultItemTitle {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #e2e8f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ndVaultItemSub { font-size: 11px; color: #475569; margin-top: 2px; }
+
+.ndVaultBadge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+}
+
+.badgeNote { background: rgba(16,185,129,.15);  color: #6ee7b7; border: 1px solid rgba(16,185,129,.2); }
+.badgeFile { background: rgba(56,189,248,.12);  color: #7dd3fc; border: 1px solid rgba(56,189,248,.18); }
+
+.ndViewHint {
+  font-size: 12px;
+  color: #334155;
+  flex-shrink: 0;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.ndVaultItem:hover .ndViewHint { color: #38bdf8; }
+
+/* ── Modal overlay ──────────────────────────────────────── */
+.ndModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  padding: 20px;
+}
+
+.ndModal {
+  background: white;
+  border-radius: 22px;
+  width: 640px;
+  max-width: 96vw;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 40px 100px rgba(0,0,0,.6);
+  overflow: hidden;
+  animation: modalIn 0.22s ease;
+  border: 1px solid rgba(56,189,248,.12);
+}
+
+/* ── Modal header ───────────────────────────────────────── */
+.ndModalHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  border-bottom: 1px solid #f1f5f9;
+  background: #f8fafc;
+  flex-shrink: 0;
+}
+
+.ndModalHeader span { font-size: 24px; }
+
+.ndModalTitleWrap { flex: 1; min-width: 0; }
+
+.ndModalTitleWrap h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+}
+
+.ndModalSub { font-size: 12px; color: #94a3b8; }
+
+.ndModalClose {
+  background: #f1f5f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #64748b;
+  transition: background 0.15s;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+
+.ndModalClose:hover { background: #e2e8f0; color: #0f172a; }
+
+/* ── Modal body ─────────────────────────────────────────── */
+.ndModalBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 22px;
+}
+
+.ndModalText {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 20px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #0f172a;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 100px;
+}
+
+.ndModalImage { width: 100%; max-height: 460px; object-fit: contain; border-radius: 12px; background: #f8fafc; }
+.ndModalPdf   { width: 100%; height: 460px; border: none; border-radius: 12px; }
+
+.ndModalDownloadWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.ndModalDownloadWrap p { margin: 0; font-size: 15px; color: #374151; }
+
+.ndDownloadBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: white;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(56,189,248,.35);
+}
+
+.ndDownloadBtn:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(56,189,248,.5); }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .ndMainGrid  { grid-template-columns: 1fr; }
+  .ndStatusRow { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .nomineeDashWrap { padding: 24px 16px 50px; }
+  .ndStatusRow     { grid-template-columns: 1fr; }
+  .nomineeDashHead h1 { font-size: 24px; }
+}

@@ -1,0 +1,217 @@
+/* ════════════════════════════════════════════════
+   Settings.css
+════════════════════════════════════════════════ */
+.settingsPage { min-height: 100vh; width: 100%; }
+
+.settingsWrapper {
+  max-width: 800px; margin: 0 auto;
+  padding: 40px 30px 60px;
+}
+
+.settingsWrapper h1 {
+  font-size: 28px; font-weight: 800; color: #e0f2fe;
+  margin-bottom: 32px; letter-spacing: -.4px; text-align: center;
+}
+
+.settingsCard {
+  background: rgba(255,255,255,0.97);
+  border-radius: 20px; padding: 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.28);
+  border: 1px solid rgba(56,189,248,.08);
+}
+
+.settingsCard h3 { font-size: 20px; color: #0f172a; margin-bottom: 8px; font-weight: 700; }
+.settingsCard p  { color: #64748b; font-size: 14px; margin-bottom: 24px; }
+
+.viewOptions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.viewBtn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 22px; border: 1.5px solid #e2e8f0;
+  background: #f8fafc; border-radius: 14px;
+  font-size: 14px; font-weight: 600; color: #475569;
+  cursor: pointer; font-family: inherit; transition: all .2s;
+}
+
+.viewBtn:hover  { border-color: #38bdf8; color: #0284c7; background: #f0f9ff; }
+.viewBtn.active { border-color: #38bdf8; color: #0284c7; background: #e0f2fe; box-shadow: 0 0 0 3px rgba(56,189,248,.15); }
+.viewIcon       { font-size: 18px; }
+
+
+/* ════════════════════════════════════════════════
+   NomineeProfile.css
+════════════════════════════════════════════════ */
+.nomineeProfilePage { min-height: 100vh; width: 100%; }
+
+.nomineeProfileHeader {
+  max-width: 1400px; margin: 28px auto 8px;
+  padding: 0 30px; text-align: center;
+}
+
+.nomineeProfileHeader h1 {
+  font-size: 28px; font-weight: 800; color: #e0f2fe;
+  margin: 0; letter-spacing: -.4px;
+}
+
+.nomineeProfileWrapper {
+  display: flex; gap: 26px;
+  max-width: 1400px; margin: 0 auto;
+  padding: 20px 30px 60px;
+  align-items: flex-start;
+}
+
+.nomineeLeftCard {
+  width: 300px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 20px; padding: 28px 22px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.28);
+  flex-shrink: 0; text-align: center;
+  border: 1px solid rgba(56,189,248,.08);
+}
+
+.nomineeAvatarBox { display: flex; justify-content: center; margin-bottom: 16px; }
+
+.nomineeAvatar {
+  width: 96px; height: 96px; border-radius: 50%;
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 42px; border: 3px solid rgba(56,189,248,.3);
+  box-shadow: 0 0 20px rgba(56,189,248,.2);
+}
+
+.nomineeLeftCard h2 { text-align: center; font-size: 20px; margin: 0; font-weight: 700; color: #0f172a; }
+.nomineeLeftCard p  { text-align: center; margin: 6px 0 18px; color: #64748b; font-size: 13px; }
+
+.nomineeMiniInfo    { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+
+.nomineeMiniRow {
+  display: flex; justify-content: space-between; gap: 12px;
+  font-size: 13px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px;
+}
+
+.nomineeMiniRow span   { color: #94a3b8; }
+.nomineeMiniRow strong { color: #0f172a; font-weight: 600; text-align: right; word-break: break-word; }
+
+.nomineeRightCard {
+  flex: 1; background: rgba(255,255,255,0.97);
+  border-radius: 20px; padding: 24px;
+  box-shadow: 0 6px 26px rgba(0,0,0,.22);
+  border: 1px solid rgba(56,189,248,.06);
+}
+
+.nomineeCardHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.nomineeCardHeader h3 { margin: 0; font-size: 20px; color: #0f172a; font-weight: 700; }
+
+.nomineeDetailsTable { border: 1px solid #f1f5f9; border-radius: 14px; overflow: hidden; }
+
+.nomineeRow { display: grid; grid-template-columns: 1fr 1.2fr; border-bottom: 1px solid #f1f5f9; }
+.nomineeRow:last-child { border-bottom: none; }
+
+.nomineeLabel { padding: 16px 20px; font-weight: 600; color: #64748b; background: #f8fafc; font-size: 13px; }
+.nomineeValue { padding: 16px 20px; color: #0f172a; font-size: 14px; }
+
+.nomineeEditBtn, .nomineeSaveBtn, .nomineeCancelBtn {
+  padding: 9px 16px; border-radius: 10px; cursor: pointer;
+  font-size: 13px; border: none; font-family: inherit; font-weight: 600;
+}
+
+.nomineeEditBtn, .nomineeSaveBtn { background: linear-gradient(135deg,#0284c7,#38bdf8); color: white; }
+.nomineeCancelBtn { background: #f1f5f9; color: #475569; margin-left: 8px; }
+.nomineeBtnGroup  { display: flex; align-items: center; }
+
+@media (max-width: 1100px) { .nomineeProfileWrapper { flex-direction: column; } .nomineeLeftCard { width: 100%; } }
+@media (max-width: 700px)  { .nomineeRow { grid-template-columns: 1fr; } }
+
+
+/* ════════════════════════════════════════════════
+   Nominee.css (the /nominee page for user)
+════════════════════════════════════════════════ */
+.nomineePage { min-height: 100vh; width: 100%; }
+
+.nomineeWrapper {
+  max-width: 1000px; margin: 0 auto;
+  padding: 40px 30px 60px; width: 100%;
+}
+
+.nomineeWrapper h1 {
+  text-align: center; margin: 0 0 30px;
+  font-size: 32px; font-weight: 800; color: #e0f2fe; letter-spacing: -.4px;
+}
+
+.nomineeLoadingText { color: #64748b; text-align: center; margin-bottom: 16px; }
+.nomineeErrorText   { color: #ef4444; margin-bottom: 16px; font-weight: 500; }
+.nomineeSuccessText { color: #10b981; margin-bottom: 16px; font-weight: 500; }
+
+.nomineeCard {
+  background: rgba(255,255,255,0.97);
+  border-radius: 22px; padding: 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.28);
+  border: 1px solid rgba(56,189,248,.08);
+}
+
+.nomineeCard h3 { margin: 0 0 10px; font-size: 22px; color: #0f172a; font-weight: 700; }
+.nomineeCard > p { margin: 0 0 24px; color: #64748b; font-size: 14px; }
+.nomineeCard > .nomineeForm { margin-top: 4px; }
+
+.nomineeForm { width: 100%; }
+
+.formGrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+.formGroup { display: flex; flex-direction: column; gap: 8px; }
+
+.formGroup label { font-size: 13px; font-weight: 600; color: #374151; }
+
+.formGroup input, .formGroup select {
+  height: 46px; border: 1.5px solid #e2e8f0; border-radius: 10px;
+  padding: 0 14px; font-size: 14px; outline: none;
+  transition: border-color .2s, box-shadow .2s; box-sizing: border-box;
+  background: #f8fafc; color: #0f172a; font-family: inherit;
+}
+
+.formGroup input:focus, .formGroup select:focus { border-color: #38bdf8; box-shadow: 0 0 0 3px rgba(56,189,248,.12); background: white; }
+
+.readonlyBox {
+  min-height: 46px; border: 1.5px solid #f1f5f9; border-radius: 10px;
+  padding: 11px 14px; font-size: 14px; background: #f8fafc;
+  color: #0f172a; display: flex; align-items: center; box-sizing: border-box; font-weight: 500;
+}
+
+.accessStatusBox { font-weight: 700; font-size: 15px; gap: 6px; }
+.accessApproved  { background: #f0fdf4; border-color: #86efac; color: #15803d; }
+.accessPending   { background: #fffbeb; border-color: #fcd34d; color: #b45309; }
+.accessDenied    { background: #fef2f2; border-color: #fca5a5; color: #b91c1c; }
+.accessNone      { background: #f8fafc; border-color: #e2e8f0; color: #64748b; }
+
+.statusValue.accessApproved { color: #15803d; }
+.statusValue.accessPending  { color: #b45309; }
+.statusValue.accessDenied   { color: #b91c1c; }
+.statusValue.accessNone     { color: #64748b; }
+
+.fullWidth { grid-column: 1 / -1; }
+
+.nomineeActionRow { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+.submitBtn {
+  padding: 12px 28px; color: white; border: none;
+  border-radius: 12px; font-size: 14px; font-weight: 600;
+  cursor: pointer; transition: background .2s, transform .15s;
+  background: #0284c7; font-family: inherit;
+}
+
+.submitBtn:hover    { transform: translateY(-1px); }
+.submitBtn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+.approveBtn         { background: #16a34a; }
+.approveBtn:hover   { background: #15803d; }
+.denyBtn            { background: #dc2626; }
+.denyBtn:hover      { background: #b91c1c; }
+
+.processStatusBox {
+  margin-top: 22px; padding: 14px 18px;
+  background: #f8fafc; border: 1px solid #f1f5f9;
+  border-radius: 12px; display: flex; align-items: center;
+  gap: 10px; font-size: 14px;
+}
+
+.statusLabel { font-weight: 600; color: #374151; }
+
+@media (max-width: 700px) { .formGrid { grid-template-columns: 1fr; } }

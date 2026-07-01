@@ -1,0 +1,275 @@
+/* .driveUploadWrapper{
+position:relative;
+display:inline-block;
+}
+
+.newButton{
+display:flex;
+align-items:center;
+gap:8px;
+padding:10px 16px;
+border:none;
+border-radius:14px;
+background:white;
+box-shadow:0 2px 8px rgba(0,0,0,0.10);
+cursor:pointer;
+font-size:15px;
+font-weight:500;
+min-width:95px;
+height:64px;
+}
+
+.plusIcon{
+font-size:24px;
+}
+
+.newText{
+font-size:15px;
+}
+
+.newButton:hover{
+background:#fafafa;
+}
+
+.plusIcon{
+font-size:42px;
+font-weight:300;
+line-height:1;
+color:#222;
+}
+
+
+
+.uploadDropdown{
+position:absolute;
+top:82px;
+left:0;
+width:260px;
+background:white;
+border:1px solid #dddddd;
+border-radius:10px;
+box-shadow:0 8px 24px rgba(0,0,0,0.14);
+overflow:hidden;
+z-index:1000;
+}
+
+.dropdownRow{
+display:flex;
+align-items:center;
+gap:14px;
+padding:16px 18px;
+font-size:17px;
+cursor:pointer;
+color:#222;
+background:white;
+transition:0.2s;
+}
+
+.dropdownRow:hover{
+background:#f5f5f5;
+}
+
+.dropdownIcon{
+font-size:20px;
+width:28px;
+text-align:center;
+}
+
+.hiddenFileInput{
+display:none;
+} */
+
+
+/* FileGrid.css — all styles are in UserDashboard.css for the grid/card rules.
+   This file keeps only the emptyState since FileGrid is used standalone. */
+
+/* These rules are duplicated from UserDashboard.css so FileGrid works 
+   even if imported elsewhere */
+
+.fileGrid {
+  width: 100%;
+}
+
+.fileGrid.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 148px));
+  gap: 18px;
+  justify-content: start;
+}
+
+.fileGrid.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fileGrid.compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.fileCard {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fileCard.grid {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.fileCard.grid:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: #bfdbfe;
+}
+
+.fileCard.list {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fileCard.list:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border-color: #bfdbfe;
+}
+
+.fileCard.compact {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fileCard.compact:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  border-color: #bfdbfe;
+}
+
+.fileIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.fileIconWrap.typeFile { background: #eff6ff; }
+.fileIconWrap.typeNote { background: #f0fdf4; }
+
+.fileCard.grid .fileIconWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.fileMeta { flex: 1; min-width: 0; }
+
+.fileName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileCard.grid .fileName {
+  white-space: normal;
+  word-break: break-word;
+  font-size: 12px;
+}
+
+.fileSub {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 3px;
+}
+
+.fileTypeBadge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.fileTypeBadge.file { background: #dbeafe; color: #1e40af; }
+.fileTypeBadge.text { background: #d1fae5; color: #065f46; }
+
+.fileDeleteBtn {
+  background: transparent;
+  border: 1px solid #fca5a5;
+  color: #ef4444;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+  opacity: 0;
+}
+
+.fileCard:hover .fileDeleteBtn { opacity: 1; }
+
+.fileDeleteBtn:hover {
+  background: #fef2f2;
+  border-color: #ef4444;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  color: #9ca3af;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  border: 2px dashed #e5e7eb;
+}
+
+.emptyIcon {
+  font-size: 52px;
+  margin-bottom: 14px;
+}
+
+.emptyState p { margin: 0; font-size: 15px; }
+
+.loadingSpinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 14px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

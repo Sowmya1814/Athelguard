@@ -1,0 +1,100 @@
+.settingsPage {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;   /* makes Footer push to bottom */
+}
+
+.settingsWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 30px 60px;
+  flex: 1;                  /* fills remaining height above footer */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.settingsWrapper h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #e0f2fe;
+  margin-bottom: 32px;
+  letter-spacing: -.4px;
+  text-align: center;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+}
+
+/* Transparent glass card — matches dark background */
+.settingsCard {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.14);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: fadeUp 0.4s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.settingsCard h3 {
+  font-size: 20px;
+  color: #e0f2fe;
+  margin: 0 0 8px;
+  font-weight: 700;
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+}
+
+.settingsCard p {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.viewOptions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.viewBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border: 1.5px solid rgba(56, 189, 248, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #94a3b8;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.viewBtn:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  color: #e0f2fe;
+  background: rgba(56, 189, 248, 0.08);
+  transform: translateY(-1px);
+}
+
+.viewBtn.active {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.12);
+}
+
+.viewIcon { font-size: 18px; }
+
+@media (max-width: 600px) {
+  .settingsWrapper { padding: 30px 18px 50px; }
+  .viewOptions     { flex-direction: column; }
+  .viewBtn         { justify-content: center; }
+}
